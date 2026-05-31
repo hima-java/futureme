@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureMe — Meet the version of you who already made it.</title>
+    
+    <!-- Link Externalized Premium Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="ambient-glow"></div>
+    <div class="ambient-glow-2"></div>
+
+    <header id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">FutureMe</a>
+            <nav class="nav-links">
+                <a href="#how-it-works">How it works</a>
+                <a href="#create">Create</a>
+                <a href="#chat">Chat</a>
+                <a href="#ai-hack">AI Hack</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#create" class="btn btn-primary">Start Now</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="container hero">
+        <div class="hero-left">
+            <div class="badge">Built in Nitish’s Founder Labs</div>
+            <h1>Meet the version of you who already made it.</h1>
+            <p>FutureMe helps you reflect, plan, and receive advice from the person you are becoming.</p>
+            <div class="hero-cta">
+                <a href="#create" class="btn btn-primary">Create My FutureMe</a>
+                <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="glass-card preview-card">
+                <div class="card-header-status">
+                    <span>Message from Future You</span>
+                    <span><span class="pulse-dot"></span> Live Link</span>
+                </div>
+                <p>“You are closer than you think. But your current habits need to match your future identity.”</p>
+                <div class="card-footer-ts">FutureMe generated • 4 seconds ago</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="container hooks reveal">
+        <div class="grid-3">
+            <div class="glass-card hook-card">
+                <div class="badge badge-pill" style="margin-bottom:16px;">Step 1</div>
+                <h4>Your goals</h4>
+                <p>Tell FutureMe what you want to become. Define your execution vectors clearly.</p>
+            </div>
+            <div class="glass-card hook-card">
+                <div class="badge badge-pill" style="margin-bottom:16px;">Step 2</div>
+                <h4>Your fears</h4>
+                <p>Be honest about what is stopping you. Shed the performance projection.</p>
+            </div>
+            <div class="glass-card hook-card">
+                <div class="badge badge-pill" style="margin-bottom:16px;">Step 3</div>
+                <h4>Your next move</h4>
+                <p>Get an uncompromising, precise trajectory vector mapping from your future self.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="create" class="container app-section reveal">
+        <div class="section-title">
+            <div class="badge">AI Reflection Engine</div>
+            <h2>Calibrate Your Identity Matrix</h2>
+            <p>Synthesize the cognitive model of your high-performance state.</p>
+        </div>
+        <div class="app-container">
+            <div class="glowing-wrapper">
+                <div class="app-card">
+                    <form id="futureForm" onsubmit="generateFutureMe(event)">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="userName">Your name</label>
+                                <input type="text" id="userName" placeholder="e.g. Nitish" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="userAge">Your current age</label>
+                                <input type="number" id="userAge" placeholder="e.g. 28" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="userGoal">Your absolute prime dream / goal</label>
+                                <input type="text" id="userGoal" placeholder="e.g. Scaling my SaaS founder ecosystem to $10M" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="userStruggle">What are you struggling with right now?</label>
+                                <textarea id="userStruggle" placeholder="e.g. Overthinking tactical options instead of building shipping momentum." required></textarea>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="userTimeline">Where do you want to be in exactly 1 year?</label>
+                                <input type="text" id="userTimeline" placeholder="e.g. Product market fit locked, lean team executing seamlessly." required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="futureTone">Choose your FutureMe tone</label>
+                                <select id="futureTone" required>
+                                    <option value="Motivational">Motivational</option>
+                                    <option value="Brutally Honest" selected>Brutally Honest</option>
+                                    <option value="Calm Mentor">Calm Mentor</option>
+                                    <option value="CEO Mode">CEO Mode</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" id="submitBtn" class="btn btn-submit">Generate My FutureMe</button>
+                        <div id="errorBox" class="error-msg">⚠️ Please populate all required configuration matrix blocks.</div>
+                    </form>
+
+                    <!-- Loader element -->
+                    <div id="loadingEngine" class="loading-container">
+                        <div class="spinner"></div>
+                        <div class="loading-text" id="loaderText">Assembling your architectural future state...</div>
+                    </div>
+
+                    <!-- Dynamic Results Interface -->
+                    <div id="resultEngine" class="result-container">
+                        <div class="result-msg-box">
+                            <h4 id="resultHeaderTone">Message from your FutureMe</h4>
+                            <p id="resultDynamicMsg"></p>
+                        </div>
+                        
+                        <div class="result-block">
+                            <h5>Your Future Identity Matrix</h5>
+                            <p id="resultIdentity"></p>
+                        </div>
+                        
+                        <div class="result-block">
+                            <h5>Your Next 3 Tactical Relays</h5>
+                            <ul class="moves-list" id="resultMoves"></ul>
+                        </div>
+                        
+                        <div class="result-block">
+                            <h5>One Non-Negotiable Habit to Start Today</h5>
+                            <p id="resultHabit" style="font-weight: 500; color: #30d158;"></p>
+                        </div>
+
+                        <!-- Safety Warning Block -->
+                        <div class="result-block warning-block" style="border-left: 3px solid #ff453a; background: rgba(255, 69, 58, 0.02); padding: 20px; border-radius: 4px 12px 12px 4px; margin-top: 24px;">
+                            <h5 style="color: #ff453a;">Critical Future Self Warning</h5>
+                            <p id="resultWarning" style="color: rgba(255, 255, 255, 0.9); font-weight: 300; font-size: 15px; line-height: 1.5;"></p>
+                        </div>
+
+                        <!-- Mantra Block -->
+                        <div class="result-block mantra-block" style="border-left: 3px solid #ff9f0a; background: rgba(255, 159, 10, 0.02); padding: 20px; border-radius: 4px 12px 12px 4px; margin-top: 24px;">
+                            <h5 style="color: #ff9f0a;">Identity Mantra</h5>
+                            <p id="resultMantra" style="color: #ff9f0a; font-style: italic; font-weight: 500; font-size: 17px; text-align: center; padding: 4px 0;"></p>
+                        </div>
+
+                        <!-- Result Actions Row -->
+                        <div style="display: flex; gap: 12px; margin-top: 36px; justify-content: flex-end; flex-wrap: wrap;">
+                            <button onclick="copyResult()" class="btn btn-secondary" style="padding: 10px 20px; font-size: 14px;">Copy Reflection</button>
+                            <button onclick="resetForm()" class="btn btn-secondary" style="padding: 10px 20px; font-size: 14px;">Regenerate</button>
+                            <a href="#chat" class="btn btn-primary" style="padding: 10px 20px; font-size: 14px; background: var(--accent-glow); color: white;">Start Chat</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Real-Time Sync Chat Interface -->
+    <section id="chat" class="container chat-section reveal">
+        <div class="section-title">
+            <div class="badge">Continuous Sync</div>
+            <h2>Ask your future self anything.</h2>
+            <p>Real-time telemetry queries into your next evolutionary layer.</p>
+        </div>
+        <div class="chat-ui">
+            <div class="chat-header">
+                <span class="pulse-dot" style="margin-right: 4px;"></span> Secure Temporal Sandbox Pipeline Active
+            </div>
+            
+            <div class="chat-body" id="chatHistory">
+                <!-- Chat Placeholder -->
+                <div class="chat-bubble bubble-future" id="chatPlaceholder">
+                    Fill in your profile details above and generate your FutureMe card to activate this secure Temporal Sandbox. Once generated, you can ask me anything about your roadmap, habits, or mental hurdles.
+                </div>
+            </div>
+
+            <!-- Thinking Dots Loader -->
+            <div class="typing-indicator-container" id="chatTypingIndicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+
+            <!-- Interactive Inputs -->
+            <div class="chat-input-area" style="padding: 16px 24px; background: rgba(255, 255, 255, 0.01); border-top: 1px solid var(--border-glass); display: flex; gap: 12px; align-items: center;">
+                <input type="text" id="chatInput" placeholder="Ask your FutureMe anything..." style="flex: 1; padding: 12px 16px; font-size: 14px; border-radius: 8px;" onkeydown="handleChatSubmit(event)" disabled>
+                <button class="btn btn-primary" id="chatSendBtn" onclick="sendChatMessage()" style="padding: 12px 20px; font-size: 14px; background: var(--accent-glow); color: white; border-radius: 8px;" disabled>→</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-hack" class="container hack-section reveal">
+        <div class="hack-panel">
+            <div class="badge badge-pill">Founder Lab AI Hack</div>
+            <h3 style="font-size: 28px; font-weight:700; margin-bottom:8px;">Live Lab Insight Frameworks</h3>
+            <p style="color: var(--text-secondary); font-size:15px;">Advanced system formatting blueprints used in this live build.</p>
+            <div class="hack-grid">
+                <div class="hack-item">
+                    <h4>Identity Prompting</h4>
+                    <p>Stop querying AI for generic tactics. Instruct it to process and compile environments specifically as the future configuration of you who has executed the solution.</p>
+                </div>
+                <div class="hack-item">
+                    <h4>Constraint Matrixing</h4>
+                    <p>Enforce clean boundaries—hard limiters on temporal capital, liquid funds, available focus, and current capability vectors to strip away academic abstraction.</p>
+                </div>
+                <div class="hack-item">
+                    <h4>Reverse Fear Warning</h4>
+                    <p>Prompt your architecture to isolate and surface the exact systemic failure nodes that your future iteration would look back and flag as clear traps today.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container dopamine-section reveal">
+        <h2>You did not just build a page. You built a mirror.</h2>
+        <p>FutureMe turns AI from an abstract automated engine into a visceral, feedback-driven vector framework for deliberate acceleration.</p>
+        <button class="btn btn-primary" onclick="shareFutureMe()">Share My FutureMe</button>
+    </section>
+
+    <div id="toastNotification" class="toast">
+        <span class="toast-icon">✓</span> <span class="toast-text">Your FutureMe moment is ready to share.</span>
+    </div>
+
+    <footer>
+        Nitish’s Founder Labs • FutureMe Live Build
+    </footer>
+
+    <!-- Load Client Logic script -->
+    <script src="script.js"></script>
+</body>
+</html>
