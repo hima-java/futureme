@@ -1,6 +1,6 @@
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const OPENROUTER_BASE_URL = 'https://openrouter.ai/api/v1/chat/completions';
-const MODEL = 'google/gemini-2.0-flash-001';
+const MODEL = 'google/gemini-2.5-flash';
 
 async function callOpenRouter(messages) {
     const response = await fetch(OPENROUTER_BASE_URL, {

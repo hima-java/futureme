@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 // OpenRouter Configuration
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const OPENROUTER_BASE_URL = 'https://openrouter.ai/api/v1/chat/completions';
-const MODEL = 'google/gemini-2.0-flash-001';
+const MODEL = 'google/gemini-2.5-flash';
 
 if (OPENROUTER_API_KEY && OPENROUTER_API_KEY !== 'replace_with_your_openrouter_api_key') {
     console.log('✓ OpenRouter API key detected and loaded.');

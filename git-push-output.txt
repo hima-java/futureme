@@ -1,0 +1,9 @@
+Reinitialized existing Git repository in C:/Users/God/OneDrive/Documents/Technical/projects/AI projects/FutureMe/.git/
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/server.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'netlify/functions/chat-futureme.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'netlify/functions/generate-futureme.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'git-push-output.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'netlify-deploy.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'netlify-version.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package-lock.json', LF will be replaced by CRLF the next time Git touches it
