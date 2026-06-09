@@ -2,7 +2,7 @@
 
 FutureMe is a premium, AI-powered self-reflection and dialogue application designed for founders and builders to connect with the person they are becoming. By inputting details about current struggles, ambitions, and future milestones, the app synthesizes a structured, highly personalized quantum letter from their future self, along with immediate next moves, warning parameters, and daily mantras.
 
-This application is built live under the brand **Nitish’s Founder Labs**.
+
 
 ---
 
